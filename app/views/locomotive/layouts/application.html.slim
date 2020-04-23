@@ -1,0 +1,38 @@
+doctype XML
+doctype html
+html xmlns='http://www.w3.org/1999/xhtml'
+  head
+    = render 'locomotive/shared/head'
+
+  body class="sidebar-open on-main #{body_class}"
+    = render 'locomotive/shared/navigation', with_preview_link: true
+    = render 'locomotive/shared/sidebar'
+
+    .content-main
+      .content-overlay
+
+      .drawer
+        .close-button
+          i.fa.fa-times
+        .content-inner
+          = yield :drawer
+          = yield :foot
+
+      .content
+        .scrollable
+          .container-fluid.main role='main'
+            .row
+              = yield :local_warning_message
+
+            - if title
+              .row.header-row
+                .col-md-7.col-xs-9
+                  h1== title
+                  == help
+
+                .col-md-5.col-xs-3.actions
+                  = yield :actions
+
+            = yield
+
+      = yield :foot

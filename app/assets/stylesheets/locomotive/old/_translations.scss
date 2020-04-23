@@ -1,0 +1,13 @@
+#translations-list {
+
+  .item {
+    & > .status {
+      margin-right: 1.5rem;
+    }
+
+    &.zero-done .completion i { color: $brand-danger; }
+    &.partially-done .completion i { color: $brand-warning; }
+    &.all-done .completion i { color: $brand-success; }
+  }
+
+}

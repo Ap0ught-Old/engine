@@ -1,0 +1,21 @@
+- title t('locomotive.passwords.new.title')
+
+= link_to root_path, class: 'brand-logo' do
+  = account_logo_tag
+
+.public-box
+  .public-intro
+    h3= t('locomotive.passwords.new.title')
+    p= t('locomotive.passwords.new.description')
+
+  = locomotive_form_for(resource, as: resource_name, url: locomotive_account_password_path) do |f|
+    = f.hidden_field :reset_password_token
+
+    = f.inputs do
+      = flash_message
+      = f.input :email, label: t('.email'), required: false
+
+    = f.actions do
+      = f.button :submit, t('.submit'), class: 'btn btn-primary'
+
+= link_to t('.link').html_safe, new_locomotive_account_session_path, class: "public-link"

@@ -1,11 +1,16 @@
 module Locomotive
   module Regexps
 
-    SUBDOMAIN           = /^[a-z][a-z0-9_-]*[a-z0-9]{1}$/
+    HANDLE              = /^[a-z][a-z0-9_-]*[a-z0-9]{1}$/
 
-    DOMAIN              = /^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix
+    DOMAIN              = /^(([a-z\d])([a-z\d-]){0,61}([a-z\d]))(\.([a-z\d])([a-z\d-]){0,61}([a-z\d]))*$/i
 
-    URL                 = /((http|https|ftp):\/)?\/\S*/
+    URL                 = /\A((https?:\/\/)|(ftp:\/))\S+\Z/
+
+    URL_AND_MAILTO      = /\A((https?:\/\/\S+)|(ftp:\/\S+)|(mailto:\S+)|\/\S*)\Z/
+
+    # e.g. hostname, hostname.com, http(s)://hostname, http(s)://hostname.com/
+    ASSET_HOST			= /\A((https?:\/\/)?)(([a-z\d])([a-z\d-]){0,61}([a-z\d]))(\.([a-z\d])([a-z\d-]){0,61}([a-z\d]))*\/?$/i
 
   end
 end

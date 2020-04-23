@@ -1,0 +1,5 @@
+nav.navigation class="#{class_name rescue ''}"
+  = link_to root_path, class: 'brand-logo' do
+    = account_logo_tag
+
+  = render 'locomotive/shared/account/navigation'

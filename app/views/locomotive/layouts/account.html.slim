@@ -1,0 +1,13 @@
+doctype html
+html xmlns='http://www.w3.org/1999/xhtml' lang=I18n.locale
+  head
+    = render 'locomotive/shared/account/head'
+
+  body class=[controller.controller_name, controller.action_name, flash.empty? ? '' : 'with-flash'].join(' ')
+    .public-background
+      = yield :header
+      .public-container
+        .public-wrapper
+          = yield
+
+    = yield :footer

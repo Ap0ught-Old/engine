@@ -1,0 +1,21 @@
+- title t('locomotive.registrations.new.title')
+
+= link_to root_path, class: 'brand-logo' do
+  = account_logo_tag
+
+.public-box
+  .public-intro
+    h3= t('locomotive.registrations.new.title')
+    p= t('locomotive.registrations.new.description')
+
+  = locomotive_form_for resource, as: resource_name, url: sign_up_path do |f|
+    = f.inputs do
+      = f.input :name, required: true, autofocus: true
+      = f.input :email, required: true
+      = f.input :password, required: true, hint: !@minimum_password_length.nil?
+      = f.input :password_confirmation, required: true, label: false, placeholder: t('locomotive.registrations.new.confirm_password')
+
+    = f.actions do
+      = f.button :submit, t('.submit'), class: 'btn btn-primary'
+
+= link_to t('.sign_in'), new_locomotive_account_session_path, class: 'public-link'

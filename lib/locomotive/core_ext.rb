@@ -1,12 +1,31 @@
-## String
-class String
+# encoding: utf-8
 
-  def permalink
-    self.parameterize('-')
+## Array
+
+class Array
+
+  def all
+    self
+  end
+end
+
+## String
+
+class String #:nodoc
+
+  def permalink(underscore = false)
+    # if the slug includes one "_" at least, we consider that the "_" is used instead of "-".
+    _permalink = if !self.index('_').nil?
+      self.to_url(replace_whitespace_with: '_')
+    else
+      self.to_url
+    end
+
+    underscore ? _permalink.underscore : _permalink
   end
 
-  def permalink!
-    replace(self.permalink)
+  def permalink!(underscore = false)
+    replace(self.permalink(underscore))
   end
 
   alias :parameterize! :permalink!
@@ -15,7 +34,7 @@ end
 
 ## Hash
 
-class Hash
+class Hash #:nodoc
 
   def underscore_keys
     new_hash = {}
@@ -43,4 +62,18 @@ class Hash
 
 end
 
+class Boolean #:nodoc
+  BOOLEAN_MAP = {
+    true => true, "true" => true, "TRUE" => true, "1" => true, 1 => true, 1.0 => true,
+    false => false, "false" => false, "FALSE" => false, "0" => false, 0 => false, 0.0 => false
+  }
 
+  def self.set(value)
+    value = BOOLEAN_MAP[value]
+    value.nil? ? nil : value
+  end
+
+  def self.get(value)
+    value
+  end
+end

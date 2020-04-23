@@ -1,0 +1,119 @@
+fr:
+  locomotive:
+    editor:
+      shared:
+        confirm: "Êtes-vous sûr(e) ?"
+
+      components:
+        cropper:
+          title: "Rogner image"
+          action: "Appliquer"
+          action_in_progress: "Rognage..."
+
+        locale_switcher:
+          locale: 'version <strong>{{locale}}</strong>'
+
+        draft:
+          link:
+            title: Insérer un lien
+            insert_link: Terminé
+
+      inputs:
+        url:
+          select_button: "Sélectionner"
+          change_button: "Changer"
+          remove_button: "Enlever"
+          types:
+            page: Page
+            content_entry: Modèle
+            _external: URL
+            email: Email
+
+        image_picker:
+          select_button: "Sélectionner"
+          change_button: "Changer"
+          remove_button: "Enlever"
+          crop_button: "Rogner"
+
+        content_type:
+          show: "Voir"
+
+      views:
+        action_bar:
+          header:
+            no_title: "Aucun titre"
+            save_button:
+              label: "Enregistrer"
+              in_progress: "En cours..."
+              success: "Enregistré !"
+              error: "Pas enregistré"
+
+          menu:
+            content: "Contenu"
+            settings: "Paramètres"
+            seo: "SEO"
+
+        pickers:
+          images:
+            title: "Images"
+            loading: "Chargement des images en cours !"
+            too_big: "Votre image est trop lourde : la taille maximale pour un fichier est de 2Mo"
+            add: "+ ajouter"
+            upload_in_progress: "Téléchargement en cours..."
+          url:
+            title: "Sélectionner une cible"
+            open_new_window: "Ouvrir dans une nouvelle fenêtre ?"
+            types:
+              page: Page
+              content_entry: Modèle
+              _external: URL
+              email: Email
+            page:
+              label: Page
+              placeholder: Taper le titre de votre page
+              section_label: Section
+            content_entry:
+              content_type_label: Quel modèle ?
+              label: Titre d'une ressource
+              placeholder: Taper le tire de votre ressource
+            _external:
+              label: Adresse WEB
+              placeholder: "https://www.example.com"
+            email:
+              label: Adresse Email
+              placeholder: "name@example.com"
+          content_entry:
+            title: "Sélectionner une ressource"
+            input:
+              label: Titre d'une ressource
+              placeholder: Taper le tire de votre ressource
+
+        preview:
+          view: "Aperçu"
+
+        sections:
+          edit:
+            default_block_label: "Contenu"
+            add_block: "+ ajouter"
+
+          gallery:
+            title: "Ajouter une nouvelle section"
+            add: "Ajouter"
+
+          dropzone:
+            add: "+ ajouter section"
+
+        seo:
+          title_label: "Titre SEO"
+          meta_keywords_label: "Mots-clés META"
+          meta_description_label: "Description META"
+
+        settings:
+          title_label: "Titre"
+          slug_label: "Permalink"
+          published: "Publiée ?"
+          listed: "Affichée dans le menu ?"
+          more: "Plus de paramètres..."
+
+        startup:
+          waiting: "Chargement en cours de l'interface d'édition"

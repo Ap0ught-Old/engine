@@ -1,70 +1,94 @@
-# Locomotive::Application.routes.draw do |map|
-Rails.application.routes.draw do
+Locomotive::Engine.routes.draw do
 
-  # admin authentication
-  devise_for :admin, :class_name => 'Account', :controllers => { :sessions => 'admin/sessions', :passwords => 'admin/passwords' }
+  # Authentication
+  devise_for :locomotive_account,
+    class_name:   'Locomotive::Account',
+    skip:         [:registrations],
+    path:         '',
+    failure_app:  'Locomotive::Devise::FailureApp'
 
-  as :admin do
-    get '/admin' => 'admin/sessions#new'
+  devise_scope :locomotive_account do
+    if Locomotive.config.enable_registration
+      get     'sign_up'  => 'registrations#new',    as: :sign_up
+      post    'sign_up'  => 'registrations#create'
+    end
+    get     'sign_in'  => 'sessions#new',         as: :sign_in
+    delete  'sign_out' => 'sessions#destroy',     as: :sign_out
   end
 
-  # admin interface for each website
-  namespace 'admin' do
-    root :to => 'sessions#new'
+  root to: 'sites#index'
+
+  resources :sites
+
+  resource :my_account, controller: 'my_account' do
+    put :regenerate_api_key, on: :member
+  end
+
+  # Back-office: current site, pages, content entries, assets and the site settings
+  scope ':site_handle' do
+
+    get '/',          to: 'dashboard#show'
+    get 'dashboard',  to: 'dashboard#show', as: :dashboard
+
+    get 'developers', to: 'developers_documentation#show', as: :developers_documentation
 
     resources :pages do
-      put :sort, :on => :member
-      get :get_path, :on => :collection
+      put :sort, on: :member
+      get :get_path, on: :collection
+
+      resource :content, controller: 'page_content', only: [:edit, :update]
+      get 'content/edit/*nav', to: 'page_content#edit'
     end
 
-    resources :snippets
+    resources :editable_elements, only: [:index, :update_all], path: 'pages/:page_id/editable_elements' do
+      patch :update_all, on: :collection
+    end
 
-    resources :sites
-
-    resource :current_site, :controller => 'current_site'
+    resources :current_site_metafields, only: [:index, :update_all] do
+      patch :update_all, on: :collection
+    end
 
     resources :accounts
 
-    resource :my_account, :controller => 'my_account'
-
     resources :memberships
 
-    resources :theme_assets do
-      get :all, :action => 'index', :on => :collection, :defaults => { :all => true }
+    resources :translations do
+      delete :bulk_destroy, on: :collection
     end
 
-    resources :assets
+    resources :search_for_resources, only: [:index]
 
-    resources :content_types
-
-    resources :contents, :path => 'content_types/:slug/contents' do
-      put :sort, :on => :collection
+    resources :content_assets do
+      post :bulk_create, on: :collection
     end
 
-    resources :api_contents, :path => 'api/:slug/contents', :controller => 'api_contents', :only => [:create]
+    resource :public_submission_accounts, only: [:edit, :update], path: 'content_types/:slug/public_submission_accounts' do
+      get :new_account
+    end
 
-    resources :custom_fields, :path => 'custom/:parent/:slug/fields'
+    resources :content_entries, path: 'content_types/:slug/entries' do
+      get :show_in_form,      on: :collection
+      put :sort,              on: :collection
+      get :export,            on: :collection
+      delete :bulk_destroy,   on: :collection
 
-    resources :cross_domain_sessions, :only => [:new, :create]
+      resource :impersonation, only: [:create], controller: 'content_entry_impersonations'
+    end
 
-    resource :import, :only => [:new, :show, :create], :controller => 'import'
+    namespace :custom_fields, path: 'content_types/:slug/fields/:name' do
+      resource :select_options, only: [:edit, :update] do
+        get :new_option
+      end
+    end
 
-    resource :export, :only => [:new], :controller => 'export'
+    resource :current_site, controller: 'current_site' do
+      get :new_domain
+      get :new_locale
+      get :new_url_redirection
+    end
 
-    # installation guide
-    match '/installation' => 'installation#show', :defaults => { :step => 1 }, :as => :installation
-    match '/installation/:step' => 'installation#show', :as => :installation_step
+    # Preview mode handled by Steam
+    mount Locomotive::Steam.to_app => '/preview', as: 'preview', anchor: false
 
   end
-
-  # sitemap
-  match '/sitemap.xml' => 'admin/sitemaps#show', :format => 'xml'
-
-  # robots.txt
-  match '/robots.txt' => 'admin/robots#show', :format => 'txt'
-
-  # magic urls
-  match '/' => 'admin/rendering#show'
-  match '*path/edit' => 'admin/rendering#edit'
-  match '*path' => 'admin/rendering#show'
 end

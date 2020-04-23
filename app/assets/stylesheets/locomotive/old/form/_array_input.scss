@@ -1,0 +1,124 @@
+.simple_form {
+  fieldset .input.array {
+    .form-wrapper {
+      padding: 0 $padding-base-horizontal;
+
+      .list {
+        & > .item {
+          padding-top: 6px;
+          padding-bottom: 6px;
+          border-bottom: $form_input_array_border_size solid $form_input_array_border_color;
+
+          .inner-row {
+            display: flex;
+            align-items: center;
+            min-height: $form_input_array_item_height;
+
+            > .icon {
+              margin-right: $padding-base-horizontal;
+              line-height: $line-height-computed;
+
+              .img-circle {
+                width: 35px;
+                border: 1px solid $form_input_array_media_border_color;
+              }
+            }
+
+            > .draggable {
+              @include user-select(none);
+              margin-right: $padding-base-horizontal;
+              font-size: 16px;
+              color: $form_input_array_draggable_color;
+              cursor: move;
+            }
+
+            > .buttons {
+              margin-left: auto;
+            }
+          }
+
+          &.ui-sortable-helper {
+            background: #fff;
+            border: $form_input_array_border_size solid $form_input_array_border_color;
+          }
+        }
+
+        &.new-input-disabled > .item:last-child,
+        &.new-input-disabled > .item.last-child {
+          border-bottom: none;
+        }
+
+        .sortable-placeholder {
+          @include make-row();
+          height: $form_input_array_placeholder_height + $form_input_array_placeholder_margin * 2;
+          background-color: $form_input_array_placeholder_background;
+
+          .inner {
+            height: $form_input_array_placeholder_height;
+            margin-top: $form_input_array_placeholder_margin - ($form_input_array_border_size / 2);
+            margin-right: $form_input_array_border_size;
+            margin-bottom: $form_input_array_placeholder_margin;
+            margin-left: $form_input_array_border_size;
+            background-color: $form_input_array_placeholder;
+            border: none;
+            border-radius: $form_input_array_placeholder_height / 2;
+          }
+        }
+      }
+
+      .new-field {
+        .field,
+        .button {
+          height: 44px;
+          line-height: 44px;
+        }
+
+        .field {
+          padding-left: $form_input_control_border_size;
+
+          input[type=text] {
+            @include box-shadow(none);
+            height: 44px;
+            padding-left: $padding-base-horizontal - $form_input_control_border_size;
+            background: white;
+            border: none;
+          }
+        }
+
+        .select2-container {
+          left: -$form_input_control_border_size - 1px;
+          padding-right: $form_input_control_border_size * 2;
+          padding-bottom: $select2-vertical-padding + 4px;
+          padding-left: $form_input_control_border_size * 2;
+          background: transparent;
+          border: none;
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .simple_form {
+    fieldset .input.array {
+      .form-wrapper {
+        .list {
+          & > .item {
+            .inner-row {
+              flex-wrap: wrap;
+
+              > .text {
+                margin-right: $padding-base-horizontal;
+              }
+
+              > .buttons {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

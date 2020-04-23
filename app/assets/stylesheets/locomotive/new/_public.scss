@@ -1,0 +1,206 @@
+// =============================================================================
+// Public
+// =============================================================================
+
+// Adds an outer div which is fixed and spans the entire viewport.
+
+.public-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  text-align: center;
+  background: linear-gradient(to bottom, $brand-primary 60px, $brand-primary 20%, $brand-primary-alt);
+}
+
+// Centers the content vertically of a public page.
+
+.public-container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  animation: fade-down 1s ease-out;
+  &::before {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    content: " ";
+  }
+}
+
+// Wraps and horizontally centers all content of the public boxes.
+
+.public-wrapper {
+  display: inline-block;
+  width: 460px;
+  padding: 56px 0;
+  vertical-align: middle;
+}
+
+// Contains the box styling.
+
+.public-box {
+  display: block;
+  padding: 50px;
+  margin: 25px 0 20px;
+  background: $white;
+  border-radius: $border-radius-base;
+  box-shadow: 0 1px 10px rgba($black, .2);
+  form {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  .btn {
+    margin-top: 22px;
+  }
+  &.without-padding {
+    padding: 0;
+  }
+  > p {
+    margin: 0;
+  }
+}
+
+// Styles intro title and text above the public form.
+
+.public-intro {
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+  h3 {
+    margin-bottom: 15px;
+    i {
+      display: block;
+      margin-bottom: 15px;
+      font-size: 30px;
+      color: $gray-lighter;
+      text-align: center;
+    }
+  }
+  p {
+    margin-bottom: 30px;
+    color: $gray;
+  }
+  &.with-padding {
+    padding: 50px 50px 0;
+    margin-bottom: 0;
+  }
+}
+
+// Creates a link below the public form.
+
+.public-link {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba($white, .7);
+  vertical-align: middle;
+  transition: color $base-transition-speed linear;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $white;
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+// Public entries collection for applying scrollbar when height is to high.
+
+.public-entries {
+  display: block;
+  max-height: 500px;
+  overflow: auto;
+  border-top: 1px solid $border-color-base;
+}
+
+//  Public entries, used in the sites overview.
+
+.public-entry {
+  position: relative;
+  display: block;
+  padding: 15px 25px;
+  text-align: left;
+  background: transparent;
+  border-bottom: 1px solid $border-color-base;
+  transition: background $base-transition-speed linear;
+  img {
+    display: inline-block;
+    width: 60px;
+    margin-right: 25px;
+    vertical-align: middle;
+    background: $gray-lightest;
+    border-radius: 50%;
+  }
+  .fa-arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    margin-top: -8px;
+    font-size: 16px;
+    line-height: 1;
+    color: $gray-lighter;
+  }
+  &:last-child {
+    border-bottom: 0;
+  }
+  &.is-add {
+    padding: 25px;
+    text-align: center;
+    border-top: 1px solid $border-color-base;
+    border-radius: 0 0 $border-radius-base $border-radius-base;
+    .fa, .far, .fal, .fas {
+      margin-right: 10px;
+    }
+  }
+  &:hover {
+    text-decoration: none;
+    background: $gray-lightest;
+  }
+  &:active,
+  &:focus {
+    text-decoration: none;
+    background: $gray-lighter;
+    outline: none;
+  }
+}
+
+// Public entry information next to the image.
+
+.public-entry-info {
+  display: inline-block;
+  vertical-align: middle;
+  h5 {
+    font-family: $font-family-sans-serif;
+    color: $gray-darker;
+  }
+  p {
+    margin: 5px 0 0;
+    font-weight: 300;
+    color: $gray-light;
+  }
+}
+
+// Responsive
+// =============================================================================
+
+@media (max-width: $screen-xs-min) {
+  .public-wrapper {
+    left: 0;
+    width: 99%;
+    padding: 56px 10px;
+  }
+  .public-box {
+    padding: 50px 20px;
+  }
+  .public-intro.with-padding {
+    padding: 50px 20px 0;
+  }
+  .public-entry {
+    padding: 15px 20px;
+  }
+}

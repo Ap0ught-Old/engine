@@ -1,1 +1,0 @@
-Haml::Template.options[:ugly] = true # improve performance in dev

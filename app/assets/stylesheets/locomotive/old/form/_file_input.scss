@@ -1,0 +1,74 @@
+.simple_form {
+  fieldset .input.file {
+    .form-wrapper {
+      padding: 6px $padding-base-horizontal 7px $padding-base-horizontal;
+
+      .file {
+        position: relative;
+        overflow: hidden;
+
+        input[type=file] {
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: block;
+          width: 1px;
+          height: 1px;
+          text-indent: -99999;
+          cursor: inherit;
+          opacity: 0;
+          filter: alpha(opacity=0);
+        }
+
+        .current-file,
+        .new-file {
+          img {
+            width: 29px;
+            height: 29px;
+            margin-right: 5px;
+            border: 2px solid $form_input_control_border_color;
+          }
+        }
+
+        .current-file,
+        .new-file,
+        .no-file {
+          height: 30px;
+          line-height: 30px;
+        }
+      }
+
+      .buttons {
+        text-align: right;
+
+        .btn {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    &.mark-as-removed {
+      .current-file {
+        @include opacity(.3);
+        text-decoration: line-through;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .simple_form {
+    fieldset .input.file {
+      .form-wrapper {
+        .buttons {
+          margin-top: 5px;
+          text-align: left;
+
+          .btn {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}

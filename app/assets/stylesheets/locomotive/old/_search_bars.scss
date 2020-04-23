@@ -1,0 +1,53 @@
+.search-bar {
+  form {
+    display: inline-block;
+
+    .form-group {
+      padding: 0.5rem 0.9rem;
+      margin-bottom: 0;
+      border: 1px solid #dadada;
+
+      input[type=text] {
+        @include box-shadow(none);
+        display: inline-block;
+        width: 200px;
+        height: 19px;
+        padding: 0;
+        font-size: 12px;
+        border: none;
+      }
+
+      .icon {
+        display: inline-block;
+        color: $nav-tabs-link-color;
+        margin-right: 0.8rem;
+      }
+    }
+  }
+
+  &.search-bar-in-nav {
+    float: right;
+
+    .form-group {
+      top: 2px;
+    }
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  .search-bar {
+    margin-bottom: 16px;
+    text-align: left;
+
+    form {
+      .form-group {
+        top: 0;
+      }
+    }
+
+    &.search-bar-in-nav {
+      float: none;
+      margin-top: 16px;
+    }
+  }
+}

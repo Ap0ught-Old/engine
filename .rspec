@@ -1,2 +1,3 @@
---drb
+--require rails_helper
 --colour
+--format documentation

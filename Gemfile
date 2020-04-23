@@ -1,87 +1,49 @@
-source :rubygems
+source 'https://rubygems.org'
 
-# add in all the runtime dependencies
+# Declare your gem's dependencies in locomotive.gemspec.
+# Bundler will treat runtime dependencies like base dependencies, and
+# development dependencies will be added by default to the :development group.
+gemspec
 
-gem 'rake', '0.9.2'
+# Declare any dependencies that are still in development here instead of in
+# your gemspec. These might include edge Rails or gems from your path or
+# Git. Remember to move these dependencies to your gemspec before releasing
+# your gem to rubygems.org.
 
-gem 'rails', '3.0.10'
+group :development, :test do
+  gem 'rspec-rails',  '~> 3.8.0'
+  gem 'capybara',     '~> 3.25.0'
 
-gem 'warden'
-gem 'devise', '1.3.4'
-gem 'devise_bushido_authenticatable', '1.0.0.alpha10', :require => 'devise_cas_authenticatable'
-
-gem 'mongo', '~> 1.3.1'
-gem 'bson', '~> 1.3.1'
-gem 'bson_ext', '~> 1.3.1'
-gem 'mongoid', '~> 2.0.2'
-gem 'locomotive_mongoid_acts_as_tree', '0.1.5.7', :require => 'mongoid_acts_as_tree'
-gem 'kaminari'
-
-gem 'haml', '3.1.2'
-gem 'sass', '3.1.2'
-gem 'locomotive_liquid', '2.2.2', :require => 'liquid'
-gem 'formtastic', '~> 1.2.3'
-gem 'inherited_resources', '~> 1.1.2'
-
-gem 'rmagick', '2.12.2', :require => 'RMagick'
-gem 'carrierwave', '0.5.6'
-gem 'dragonfly',  '~> 0.9.1'
-gem 'rack-cache', :require => 'rack/cache'
-
-gem 'custom_fields', '1.0.0.beta.25'
-gem 'cancan'
-gem 'fog', '0.8.2'
-gem 'mimetype-fu'
-gem 'actionmailer-with-request', :require => 'actionmailer_with_request'
-gem 'heroku', '1.19.1'
-gem 'httparty', '0.7.8'
-gem 'RedCloth', '4.2.8'
-gem 'delayed_job', '3.0.0.pre4'
-gem 'delayed_job_mongoid', '1.0.6'
-gem 'rubyzip'
-gem 'locomotive_jammit-s3', :require => 'jammit-s3'
-gem 'SystemTimer', :platforms => :ruby_18
-gem 'cells'
-gem 'sanitize'
-gem 'highline'
-
-# The rest of the dependencies are for use when in the locomotive dev environment
-
-group :development do
-  gem 'unicorn' # Using unicorn_rails instead of webrick (default server)
-
-  gem 'rspec-rails', '2.6.1' # in order to have rspec tasks and generators
-
-  gem 'rspec-cells'
+  # To use a debugger
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
-group :test, :development do
-  gem 'linecache', '0.43', :platforms => :mri_18
-  gem 'ruby-debug', :platforms => :mri_18
-  gem 'ruby-debug19', :platforms => :mri_19
+group :development, :test do
+  # gem 'custom_fields', path: '../custom_fields' # for Developers
+  # gem 'custom_fields', github: 'locomotivecms/custom_fields', ref: '73b666d'
 
-  gem 'bushido_stub', '0.0.3'
+  # gem 'locomotivecms_common', path: '../common', require: false
+  # gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '4d1bd56', require: false
 
-  gem 'cucumber-rails'
+  # gem 'locomotivecms_steam', path: '../steam', require: false
+  gem 'locomotivecms_steam', github: 'locomotivecms/steam', ref: '02edd6b', require: false
+
+  # gem 'carrierwave-mongoid', git: 'git://github.com/locomotivecms/carrierwave-mongoid.git'
 end
 
 group :test do
-  gem 'autotest', :platforms => :mri
-  gem 'ZenTest', :platforms => :mri
-  gem 'growl-glue'
-  gem 'rspec-rails', '2.6.1'
-  gem 'factory_girl_rails', '~> 1.1'
-  gem 'pickle'
-  gem 'xpath', '~> 0.1.4'
-  gem 'capybara'
-  gem 'database_cleaner'
+  gem 'selenium-webdriver',       '~> 3.142.3'
+  gem 'puma',                     '~> 4.3.3'
+  gem 'webdrivers',               '~> 4.1.0'
 
-  gem 'spork', '~> 0.9.0.rc'
-  gem 'launchy'
-  gem 'mocha', '0.9.12' # :git => 'git://github.com/floehopper/mocha.git'
+  gem 'grape-entity-matchers',    github: 'salsify/grape-entity-matchers', branch: 'grape-entity-exposures'
+  gem 'shoulda-matchers',         '~> 3.1.2'
+  gem 'rails-controller-testing', '~> 1.0.2'
+  gem 'factory_bot_rails',        '~> 4.11.1'
+  gem 'json_spec',                '~> 1.1.5'
+  gem 'database_cleaner',         '~> 1.6.2'
+  gem 'email_spec',               '~> 2.2.0'
+
+  gem 'codeclimate-test-reporter',  '~> 1.0.7',  require: false
+  gem 'simplecov',                  require: false
 end
-
-group :production do
-  gem 'bushido', '0.0.35'
-end
-

@@ -1,0 +1,41 @@
+= render 'locomotive/pages/header'
+
+= locomotive_form_for @page, url: update_all_editable_elements_path(current_site, @page), defaults: { placeholder: false, hint: false } do |f|
+
+  = f.action class: 'hide'
+
+  ul.nav.nav-tabs role='tablist'
+    = form_nav_tab :content, true do
+      = link_to t('simple_form.titles.locomotive.page.content'), '#content', role: 'tab', data: { toggle: 'tab' }
+
+    = form_nav_tab :main do
+      = link_to t('simple_form.titles.locomotive.page.settings'), edit_page_path(current_site, @page)
+
+  .tab-content
+
+    = form_tab_pane :content, true do
+
+      .row
+
+        - if @editable_elements.blank?
+          - if @content_entry.nil?
+            .col-md-12
+              br
+              .alert.alert-warning.text-center role="alert"
+                = t(:no_editable_elements, scope: 'locomotive.editable_elements.edit')
+
+        - else
+          .col-md-12
+            fieldset.inputs.info-row
+              .form-group.input.select.optional.inline
+                label.select.optional.control-label for='page_block'
+                  = t(:region, scope: 'simple_form.labels.locomotive.editable_element')
+                span.form-wrapper
+                  = select_tag 'block', options_for_page_blocks(@blocks)
+
+          .col-md-12
+            = render 'form', f: f
+
+            = f.actions do
+              = f.action
+

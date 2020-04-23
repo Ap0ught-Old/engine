@@ -1,29 +1,38 @@
 module Locomotive
   class Configuration
 
+    @@default_locales = %w{en de fr bg cs da el es ca fa-IR fi-FI it ja-JP lt nl pl-PL pt pt-BR ru sv sv-FI uk zh-CN}
+    @@site_locales    = @@default_locales + %w{hr et nb sk sl sr}
+
     @@defaults = {
-      :name                   => 'LocomotiveApp',
-      :domain                 => 'example.com',
-      :reserved_subdomains    => %w{www admin email blog webmail mail support help site sites},
-      # :forbidden_paths      => %w{layouts snippets stylesheets javascripts assets admin system api},
-      :reserved_slugs         => %w{stylesheets javascripts assets admin images api pages edit},
-      :locales                => %w{en de fr pt-BR it nl no es ru},
-      :cookie_key             => '_locomotive_session',
-      :enable_logs            => false,
-      :hosting                => :auto,
-      :delayed_job            => false,
-      :default_locale         => :en,
-      :mailer_sender          => 'support', #support@example.com'
-      :manage_subdomain       => false,
-      :manage_manage_domains  => false,
-      :lastest_items_nb       => 5,
-      :rack_cache             => {
-        :verbose     => true,
-        :metastore   => URI.encode("file:#{Rails.root}/tmp/dragonfly/cache/meta"), # URI encoded in case of spaces
-        :entitystore => URI.encode("file:#{Rails.root}/tmp/dragonfly/cache/body")
+      name:                         'Locomotive',
+      host:                         nil,
+      # forbidden_paths:            %w{layouts snippets stylesheets javascripts assets admin system api},
+      reserved_site_handles:        %w(sites my_account password sign_in sign_out),
+      reserved_slugs:               %w{stylesheets javascripts assets admin locomotive images api pages edit},
+      reserved_domains:             [],
+      locales:                      @@default_locales,
+      site_locales:                 @@site_locales,
+      cookie_key:                   '_locomotive_session',
+      enable_logs:                  false,
+      enable_admin_ssl:             false,
+      delayed_job:                  false,
+      default_locale:               :en,
+      mailer_sender:                'support@example.com',
+      unsafe_token_authentication:  false,
+      enable_registration:          true,
+      optimize_uploaded_files:      false,
+      default_maximum_uploaded_file_size: 2.megabytes,
+      ui:                     {
+        per_page:     10
       },
-      :devise_modules             => [:database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :encryptable, { :encryptor => :sha1 }],
-      :context_assign_extensions  => {  }
+      rack_cache:             {
+        verbose:      true,
+        metastore:    URI.encode("file:#{Rails.root}/tmp/dragonfly/cache/meta"), # URI encoded in case of spaces
+        entitystore:  URI.encode("file:#{Rails.root}/tmp/dragonfly/cache/body")
+      },
+      devise_modules:               [:registerable, :rememberable, :database_authenticatable, :recoverable, :trackable, :validatable, :encryptable, { encryptor: :sha1 }],
+      steam_image_resizer_secret:   'please change it'
     }
 
     cattr_accessor :settings
@@ -36,36 +45,12 @@ module Locomotive
       @@settings
     end
 
-    def multi_sites?
-      self.multi_sites != false
-    end
-
-    def manage_subdomain?
-      self.manage_subdomain == true
-    end
-
-    def manage_domains?
-      self.manage_domains == true
-    end
-
-    def manage_subdomain_n_domains?
-      self.manage_subdomain? && self.manage_domains?
-    end
-
-    def reserved_subdomains
-      if self.multi_sites?
-        if self.multi_sites.reserved_subdomains.blank?
-          @@defaults[:reserved_subdomains]
-        else
-          self.multi_sites.reserved_subdomains
-        end
-      else
-        []
-      end
-    end
-
     def method_missing(name, *args, &block)
       self.settings.send(name, *args, &block)
+    end
+
+    def respond_to?(name, include_all = false)
+      self.settings.keys.include?(name.to_sym) || super
     end
 
     protected

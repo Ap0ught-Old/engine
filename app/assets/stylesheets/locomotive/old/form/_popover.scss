@@ -1,0 +1,66 @@
+.popover {
+  .simple_form {
+    padding-bottom: 0;
+
+    fieldset {
+      padding-top: 0;
+
+      .input {
+        padding: 0;
+        margin-bottom: 10px;
+        background: transparent;
+
+        .control-label {
+          font-size: 10px;
+        }
+
+        .form-wrapper {
+          margin-top: 0;
+          border-width: 3px;
+
+          .form-control {
+            height: 22px;
+            padding: 5px 6px;
+            font-size: 12px;
+          }
+
+          .input-group {
+            .form-control {
+              border: none;
+            }
+            .input-group-addon {
+              padding: 3px 4px;
+              border: none;
+            }
+          }
+        }
+
+        &.select {
+          .form-wrapper {
+            border: none;
+            .form-control {
+              height: 28px;
+              line-height: 28px;
+              border-width: 3px;
+
+              .select2-choice {
+                height: 28px;
+                padding-left: 0;
+                line-height: 14px;
+
+                .select2-arrow {
+                  top: -8px;
+                  height: 28px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    p {
+      margin: 3px 0;
+    }
+  }
+}

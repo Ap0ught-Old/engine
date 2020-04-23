@@ -1,0 +1,111 @@
+.simple_form {
+
+  padding-bottom: 40px;
+
+  fieldset {
+    padding-top: 20px;
+
+    legend {
+      display: none;
+    }
+
+    .input {
+      background: $form_input_background_color;
+      padding: $form_input_padding;
+      border-radius: $form_input_radius;
+      @include transition(background-color 0.2s ease-in-out);
+
+      header {
+        a.action {
+          font-size: 13px;
+        }
+      }
+
+      .control-label {
+        display: inline-block;
+        font-size: $form_input_label_size;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $form_input_label_color;
+
+        .untranslated {
+          color: $form_input_label_untranslated_color;
+        }
+
+        .flag {
+          margin-right: 5px;
+        }
+
+        abbr {
+          margin-right: 5px;
+        }
+
+        &.required:after {
+          display: inline-block;
+          content: "*";
+          margin-left: 3px;
+        }
+      }
+
+      .help-inline, .error-inline {
+        margin-left: 10px;
+        font-family: $alt-font-family-sans-serif;
+      }
+
+      .help-inline {
+        color: $form_input_help_color;
+        font-size: $form_input_help_size;
+
+        b {
+          font-weight: bold;
+          color: #555;
+        }
+      }
+
+      .error-inline {
+        color: $state-danger-text;
+        font-weight: bold;
+      }
+
+      .form-wrapper {
+        position: relative;
+        margin-top: 12px;
+        display: block;
+        background: $form_input_wrapper_background_color;
+        border: $form_input_control_border_size solid $form_input_control_border_color;
+        border-radius: $form_input_control_border_size;
+
+        > input, > select, .input-group > input {
+          border: none;
+          border-radius: 0px;
+        }
+
+        .input-group {
+          .input-group-addon {
+            border: none;
+          }
+        }
+      }
+
+      &.hovered {
+        background-color: $form_input_hovered_background_color;
+
+        .form-wrapper {
+          border-color: $form_input_hovered_control_border_color;
+        }
+
+      }
+
+      &.highlighted {
+        background-color: yellow;
+      }
+
+    }
+
+    .has-error {
+      @include form-control-validation($text-color, $input-border, $state-danger-bg);
+    }
+  }
+}
+
+

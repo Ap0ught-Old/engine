@@ -1,0 +1,52 @@
+.url-picker {
+
+  padding: 2rem;
+
+  &-type {
+
+    &-list {
+      display: flex;
+      margin-bottom: 2rem;
+    }
+
+    &-option {
+      flex: 1;
+
+      &--checked {
+        label {
+          color: $black !important;
+        }
+      }
+
+      input {
+        margin-right: 1rem;
+      }
+
+      label {
+        font-weight: normal;
+        color: $gray;
+        margin-bottom: 0;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+  .react-autosuggest__input {
+    &::placeholder {
+      color: $gray-light;
+    }
+  }
+
+}
+
+// inside a modal
+
+.modal-window {
+
+  .url-picker {
+    min-width: 42rem;
+    padding: 2rem 0 0 0;
+  }
+
+}

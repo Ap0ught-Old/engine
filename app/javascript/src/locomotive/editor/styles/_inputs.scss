@@ -1,0 +1,281 @@
+.editor-edit-section, .editor-edit-block {
+  padding: 2rem;
+}
+
+.editor-input {
+  margin-bottom: 2.5rem;
+
+  &--label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $gray-darker;
+    margin-bottom: 0.8rem;
+  }
+
+  &--error {
+    display: inline-block;
+    margin-left: 1rem;
+    color: $brand-danger;
+  }
+
+  &--text {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+    border-radius: 3px;
+    border: 1px solid $gray-lighter;
+
+    &::placeholder {
+      color: $gray-light;
+    }
+  }
+
+  &--select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    padding: 0rem 0.8rem;
+    border-radius: 3px;
+    border: 1px solid $gray-lighter;
+    height: 3.4rem;
+    outline: none;
+    background: transparent;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+
+  &--image-picker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+// IMAGE PICKER
+
+.editor-input-image-picker {
+
+  &--source {
+    background: $gray-lightest;
+    border-radius: 3px;
+    border: 1px solid $gray-lighter;
+    width: 20rem;
+    height: 20rem;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &--actions {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+// URL
+
+.editor-input-url {
+
+  &--info {
+    display: flex;
+    align-items: center;
+
+    &-type {
+      margin-right: 1rem;
+    }
+  }
+
+  &--actions {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+// CONTENT ENTRY
+
+.editor-input-content-entry {
+
+  &--info {
+    display: flex;
+    align-items: center;
+  }
+
+  &--actions {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+
+// RADIO
+
+.editor-input-radio {
+
+  &--option input {
+    margin-right: 1rem;
+  }
+
+}
+
+// SELECT
+
+.editor-input-select {
+
+  &-wrapper {
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      content: "\f107";
+      font-family: 'Font Awesome 5 Free';
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: $gray;
+      pointer-events: none;
+    }
+
+    &:hover {
+      &:after {
+        color: $brand-primary;
+      }
+    }
+  }
+
+}
+
+// CHECKBOX
+
+.editor-input-checkbox {
+  display: flex;
+  align-items: center;
+
+  .editor-input {
+    &--label {
+      display: block;
+      margin: 0 1rem 0 0;
+    }
+
+    &--button {
+      margin-left: auto;
+    }
+  }
+}
+
+// CONTENT TYPE
+
+.editor-input-content-type {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .editor-input {
+    &--label {
+      margin: 0;
+    }
+
+    &--action {
+      margin-left: auto;
+    }
+  }
+}
+
+// INTEGER
+.editor-input-integer {
+
+  .editor-input {
+
+    &--label {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &--value {
+        margin-left: auto;
+        text-transform: lowercase;
+        color: $brand-primary;
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+// HINT
+.editor-input-hint {
+
+  .editor-input {
+    &--label {
+      font-weight: normal;
+      font-size: 1.3rem;
+      text-transform: inherit;
+    }
+  }
+
+}
+
+// RICH TEXT EDITOR
+
+.DraftEditor-editorContainer, .DraftEditor-root, .public-DraftEditor-content {
+  height: 100%;
+
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 2.2rem; }
+  h3 { font-size: 2.0rem; }
+  h4 { font-size: 1.8rem; }
+  h5 { font-size: 1.6rem; }
+  h6 { font-size: 1.4rem; }
+}
+
+.editor-input-rich-text {
+
+  .rdw-editor-wrapper {
+    border: 1px solid $gray-lighter;
+    border-radius: 3px;
+  }
+
+  .rdw-editor-toolbar {
+    position: relative;
+    border: none;
+    margin-bottom: 0px;
+  }
+
+  .rdw-editor-main {
+    border-top: 1px solid $gray-lighter;
+    padding: 0rem 0.8rem;
+  }
+
+  .rdw-link-wrapper {
+    position: static;
+  }
+
+  &-counter {
+    margin-top: 0.4rem;
+    opacity: 0.6;
+    text-align: right;
+    font-size: 1.2rem;
+  }
+
+}
+
+.rdw-link-modal-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+

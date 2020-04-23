@@ -1,0 +1,92 @@
+.simple_form {
+
+  fieldset .input.rte, fieldset .input.markdown {
+
+    .form-wrapper {
+
+      .wysihtml5-toolbar {
+        padding: 6px 12px;
+
+        > .wysihtml5-toolbar-group {
+          margin-right: 20px;
+
+          &:last-child {
+            margin-right: 0px;
+          }
+        }
+
+        a {
+          font-size: $form_input_rte_command_font_size;
+          color: $form_input_rte_command_color;
+          margin-right: 6px;
+          cursor: pointer;
+
+          &.wysihtml5-command-active {
+            color: $form_input_rte_command_active_color;
+          }
+        }
+
+      }
+
+    }
+
+    .wysihtml5-counter {
+      margin-top: 5px;
+      text-align: right;
+    }
+
+  }
+
+  &.rte-expanded {
+
+    .scrollable {
+      position: static;
+
+      .col-md-12 {
+        position: static;
+      }
+    }
+
+    fieldset.inputs.expanded {
+      .form-group.input {
+        display: none;
+
+        &.expanded {
+          display: block;
+        }
+      }
+
+      .popover-content {
+        .form-group.input {
+          display: block;
+        }
+      }
+    }
+
+    fieldset.inputs.expanded {
+      position: fixed;
+      top: 84px;
+      left: 1px;
+      right: 0px;
+      bottom: 0px;
+      padding: 15px !important;
+      background: #fff;
+
+      .form-group.input {
+        height: 100%;
+      }
+    }
+
+    .tab-pane {
+      fieldset.inputs.expanded {
+        top: 102px;
+        left: 21em;
+      }
+    }
+  }
+
+}
+
+body.sidebar-closed .simple_form.rte-expanded .tab-pane fieldset.inputs.expanded {
+  left: 1px;
+}

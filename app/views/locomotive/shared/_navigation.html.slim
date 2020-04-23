@@ -1,0 +1,20 @@
+nav.navigation.navigation-app
+  .navigation-trigger
+    .fa.fa-caret-left
+    .fa.fa-bars
+    .fa.fa-caret-right
+
+  - if (_title = yield(:site_title)).present?
+    .navigation-middle
+      = _title
+  - else
+    .navigation-middle
+      = link_to current_site.name_was, dashboard_path(current_site)
+
+      - if with_preview_link
+        = link_to preview_path(current_site), target: 'blank' do
+          i.fas.fa-external-link-alt
+
+  = render 'locomotive/shared/account/navigation'
+
+  = render 'locomotive/shared/main_app_header'

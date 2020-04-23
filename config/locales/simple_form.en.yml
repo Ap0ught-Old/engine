@@ -1,0 +1,175 @@
+en:
+  simple_form:
+    blank_required_fields: "You haven't filled all the required inputs."
+
+    titles:
+      locomotive:
+        account:
+          information: Main
+          api: API
+          credentials: Credentials
+        site:
+          information: Main
+          access_points: Access points
+          seo: SEO
+          advanced: Advanced
+          url_redirections: URL redirections
+        page:
+          content: Content
+          settings: Settings
+          seo: SEO
+        content_entry:
+          content: Content
+          advanced: Advanced
+          seo: SEO
+
+    labels:
+      locomotive:
+        content_entry:
+          _slug: Permalink
+          _visible: Visible
+        content_type:
+          public_submission_accounts: "Notified Accounts"
+          # "custom_fields/field":
+          #   select_options: "Options"
+        account:
+          api_key: API key
+          no_api_key: None
+          edit:
+            locale: UI Language
+            password: New password
+            password_confirmation: New password confirmation
+        page:
+          seo_title: Title
+          target_klass_name: Model
+        editable_element:
+          region: Sections
+        site:
+          locales: Languages
+          timezone_name: Timezone
+          cache_enabled: Cache
+          private_access: "Enable password-protection"
+          password: "Site-Wide Password"
+          url_redirections_expert_mode: "Expert mode"
+          url_redirections_plain_text: "Url redirections"
+          maximum_uploaded_file_size: "Maximum uploaded files size"
+          new:
+            locales: First language
+        membership:
+          edit:
+            role: New role
+        rte_input_link_form:
+          url: Link URL
+          target: Target
+          title: Title
+        rte_input_image_form:
+          src: Source
+          title: Title
+          alt: Alt
+          alignment: Alignment
+        image_resize_form:
+          width: Width
+          height: Height
+        rte_input_table_form:
+          cols: "Columns"
+          rows: "Rows"
+          head: "Head row?"
+          class_name: "CSS class"
+
+    hints:
+      locomotive:
+        account:
+          password: 6 characters minimum
+        page:
+          handle: "Unique identifier to retrieve this page within an external controller instance"
+          published: "Only authenticated accounts can view unpublished pages."
+          templatized: "Use the page as a template for a model you defined."
+          cache_enabled: "When enabled, your page will be cached as long as the content doesn't change."
+          listed: "Control whether to show the page from generated menus."
+          target_klass_name: "The type of content this page will be a template for."
+          seo_title: "Define a page title which should be used as the value for the title tag in the head section. Leave it empty if you want to use the default value from the site settings."
+          meta_keywords: "Overrides the site's meta keywords used within the head tag of the page. They are separated by a comma."
+          meta_description: "Overrides the site's meta description used within the head tag of the page."
+          is_layout: "If true, this page can used as a layout for other pages."
+          allow_layout: "Let authors change or not the layout of that page."
+        site:
+          locales: "Drag&drop a flag to the first position to make it the default one."
+          seo_title: "Define a global value here which should be used as the value for the title tag in the head section."
+          meta_keywords: "Meta keywords used within the head tag of the page. They are separated by a comma. Required for SEO."
+          meta_description: "Meta description used within the head tag of the page. Required for SEO."
+          robots_txt: "Content of the <span class='code'>/robots.txt</span> file. Check the following <a href='http://www.w3.org/TR/html4/appendix/notes.html#h-B.4.1.1'>url</a> for more information."
+          maximum_uploaded_file_size: "In bytes."
+          domains: "Add your domains just below. Documentation <a href=\"https://locomotive-v3.readme.io/docs/domains\">here</a> for more information."
+          asset_host: "Site-specific asset host that overrides engine asset host (ex. \"localhost\", \"asset.dev\", \"https://asset-host.com/\")."
+          memberships: "You can invite other accounts to edit/manage the site."
+          cache_enabled: "When enabled, your pages will be cached as long as the content doesn't change. Disabling cache per page is allowed."
+          bypass_browser_locale: "By default, in a multi locales site, if a visitor visits the index page for the first time, we'll redirect her/him to the locale matching one of the browser languages. Toggle on if you don't want this behaviour."
+          redirect_to_first_domain: "When enabled, requests made to any domains listed above will be redirected to the first domain."
+          redirect_to_https: "When enabled, non secure requests will be redirected to https. This requires the installation of a SSL certificate on the web server."
+          url_redirections_expert_mode: "When enabled, a textarea will let you manage your redirections. <strong>IMPORTANT: save your site before returning to the default mode.</strong>"
+          url_redirections_plain_text: "One line per redirection and source and target separated by a space."
+          url_redirections: "Redirect (301) legacy urls to pages you created in the back-office. The origin and the destination URLs are separated by a <u>space</u>."
+          private_access: You can hide your site behind a password.
+          password: The password public visitors will have to enter to see the content of your site.
+          new:
+            locales: "You can add other languages once your site will be created."
+        translation:
+          key: "Do not use dash but underscore instead. Example: welcome_message."
+        content_entry:
+          _slug: "Property used to generate the url of a page working as a template for this content type (ex: \"template_page/{{ your_object._permalink }})\"."
+          _visible: "By default, the entry will show up in the site. So it can be used as a published attribute."
+          seo_title: "The value you fill in will replace the SEO title of the templatized page related to your model."
+          meta_keywords: "Overrides the site's meta keywords used within the head tag of the page. They are separated by a comma."
+          meta_description: "Overrides the site's meta description used within the head tag of the page."
+        content_type:
+          public_submission_accounts: "When an entry is created, send a notification email to the accounts listed below."
+        image_resize_form:
+          width: "in px"
+          height: "in px"
+
+    placeholders:
+      locomotive:
+        site:
+          domains: "Ex: mysite.com"
+          url_redirections: "Ex: my-legacy-url new-url-in-locomotive"
+        content_type_entry_field:
+          select_options: "Type the label of your new option here"
+
+    options:
+      locomotive:
+        rte_input_link_form:
+          target:
+            not_set: "Not set"
+            self: "Open link in the same window"
+            blank: "Open link in a new window"
+        rte_input_image_form:
+          alignment:
+            default: Default
+            left: Left
+            right: Right
+
+    buttons:
+      defaults:
+        locomotive:
+          create: Create
+          update: Save
+          submit: Ok
+          cancel: Cancel
+          delete: Delete
+          close: Close
+          loading_text: "Saving..."
+          or: or
+
+      locomotive:
+        account:
+          new_api_key: Regenerate
+        image_resize_form:
+          loading_text: Resizing...
+          submit: Resize
+        site:
+          delete: Delete this site
+        page:
+          delete: Delete
+        content_entry:
+          delete: Delete
+

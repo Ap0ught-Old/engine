@@ -1,0 +1,12 @@
+= render 'locomotive/pages/header'
+
+= locomotive_form_for @page, url: page_path(current_site, @page), html: { multipart: true } do |f|
+
+  = hidden_field_tag :active_tab, ''
+  = hidden_field_tag :_location,  params[:_location]
+
+  = f.action class: 'hide'
+
+  = render 'locomotive/pages/form/tabs', f: f
+
+  = render 'locomotive/pages/form/panes', f: f

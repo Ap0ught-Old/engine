@@ -1,116 +1,82 @@
 nl:
   flash:
-    admin:
+    locomotive:
       pages:
         create:
-          notice: "Pagina is gemaakt."
-          alert: "Pagina is niet gemaakt."
+          notice: "Pagina is succesvol gecreëerd."
+          alert: "Pagina kon niet worden gecreëerd."
         update:
-          notice: "Pagina is gewijzigd."
-          alert: "Pagina is niet gewijzigd."
+          notice: "Pagina werd succesvol aangepast."
+          alert: "Pagina kon niet worden aangepast."
         sort:
-          notice: "Pagina's zijn ingedeeld."
+          notice: "Pagina's zijn succesvol gesorteerd."
         destroy:
-          notice: "Pagina is verwijderd."
-
-      contents:
+          notice: "Pagina werd succesvol verwijderd."
+      content_entries:
         create:
-          notice: "Inhoud is gemaakt."
-          alert: "Inhoud is niet gemaakt."
+          notice: "Item is succesvol aangemaakt."
+          alert: "Item kon niet worden aangemaakt."
         update:
-          notice: "Inhoud is gewijzigd."
-          alert: "Inhoud is niet gewijzigd."
+          notice: "Item werd succesvol gewijzigd."
+          alert: "Item kon niet worden gewijzigd."
         sort:
-          notice: "Inhoud is ingedeeld."
+          notice: "Items werden succesvol gesorteerd."
         destroy:
-          notice: "Inhoud is verwijderd."
-
+          notice: "Item werd succesvol verwijderd."
       content_types:
-        create:
-          notice: "Model is gemaakt."
-          alert: "Model is niet gemaakt."
         update:
-          notice: "Model is gewijzigd."
-          alert: "Model is niet gewijzigd."
-        destroy:
-          notice: "Model is verwijderd."
-
+          notice: "Model werd succesvol gewijzigd."
+          alert: "Model kon niet worden gewijzigd."
       current_site:
         update:
-          notice: "Mijn website is gewijzigd."
-          alert: "Mijn website gewijzigd."
-
-      snippets:
-        create:
-          notice: "Fragment is gemaakt."
-          alert: "Fragment is niet gemaakt."
-        update:
-          notice: "Fragment is gewijzigd."
-          alert: "Fragment is niet gewijzigd."
-        destroy:
-          notice: "Fragment is verwijderd."
-
+          notice: "Mijn site werd succesvol gewijzigd."
+          alert: "Mijn site kon niet worden gewijzigd."
       accounts:
         create:
-          notice: "Account is gemaakt."
-          alert: "Account is niet gemaakt."
-
+          notice: "Account werd succesvol aangemaakt."
+          alert: "Account kon niet worden aangemaakt."
       my_account:
         update:
-          notice: "Mijn account is gewijzigd."
-          alert: "Mijn account is niet gewijzigd."
-
+          notice: "Account werd succesvol gewijzigd."
+          alert: "Account kon niet worden gewijzigd."
       sites:
         create:
-          notice: "Website is gemaakt."
-          alert: "Website is niet gemaakt."
+          notice: "Site is succesvol aangemaakt."
+          alert: "Site kon niet worden aangemaakt."
         destroy:
-          notice: "Website is verwijderd."
-
+          notice: "Site werd succesvol verwijderd."
+      current_site_metafields:
+        update_all:
+          notice: "Site parameters zijn succesvol aangepast."
       memberships:
         create:
-          notice: "Lidmaatschap is gemaakt."
-          alert: "Lidmaatschap is niet gemaakt."
-          already_created: "Lidmaatschap is al gemaakt voor de website."
-
-      asset_collection:
+          notice: "Lidmaatschap is succesvol aangemaakt."
+          alert: "Lidmaatschap kon niet worden aangemaakt."
+          already_created: "Account werd voorheen al toegevoegd aan de huidige website."
+      content_assets:
         create:
-          notice: "Verzameling is gemaakt."
-          alert: "Verzameling is niet gemaakt."
+          notice: "Bestand is succesvol geupload."
+          alert: "Bestand kon niet worden geupload."
+        bulk_create:
+          notice: "Bestanden zijn succesvol geupload."
+          alert: "Bestanden konden niet worden geupload."
         update:
-          notice: "Verzameling is gewijzigd."
-          alert: "Verzameling is niet gewijzigd."
+          notice: "Bestand is succesvol gewijzigd."
+          alert: "Bestand kon niet worden gewijzigd."
         destroy:
-          notice: "Verzameling is verwijderd."
-
-      assets:
+          notice: "Bestand werd succesvol verwijderd."
+          alert: "Bestand kon niet verwijderd worden."
+      translations:
         create:
-          notice: "Bronbestand is gemaakt."
-          alert: "Bronbestand is niet gemaakt."
+          notice: "Vertaling is succesvol aangemaakt."
+          alert: "Vertaling kon niet worden verwijderd."
         update:
-          notice: "Bronbestand is gewijzigd."
-          alert: "Bronbestand is niet gewijzigd."
-
-      theme_assets:
-        create:
-          notice: "Bestand is gemaakt."
-          alert: "Bestand is niet gemaakt."
-        update:
-          notice: "Bestand is gewijzigd."
-          alert: "Bestand is niet gewijzigd."
+          notice: "Vertaling is succesvol gewijzigd."
+          alert: "Vertaling kon niet worden gewijzigd."
         destroy:
-          notice: "Bestand is verwijderd."
-
+          notice: "Vertaling werd succesvol verwijderd."
       custom_fields:
-        update:
-          alert: "Veld is niet gewijzigd"
-
-      cross_domain_sessions:
-        create:
-          alert: "U moet inloggen"
-
-      imports:
-        create:
-          done: "Uw website is gewijzigd."
-          notice: "Uw website wordt momenteel gewijzigd."
-          alert: "Het importeren is niet afgerond."
+        select_options:
+          update:
+            notice: "Veld werd succesvol aangepast."
+            alert: "Veld kon niet worden gewijzigd."

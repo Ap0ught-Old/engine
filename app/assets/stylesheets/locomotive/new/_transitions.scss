@@ -1,0 +1,96 @@
+// =============================================================================
+// Transitions
+// =============================================================================
+
+// Close sidebar.
+
+.sidebar-closed {
+  .sidebar {
+    left: -300px;
+  }
+  .navigation-app {
+    left: 0;
+    .navigation-trigger {
+      .fa-bars {
+        margin-right: 5px;
+        margin-left: 0;
+      }
+      .fa-caret-right {
+        display: inline-block;
+      }
+      .fa-caret-left {
+        display: none;
+      }
+    }
+  }
+  .content-main {
+    left: 0;
+  }
+}
+
+// Open sidebar.
+
+.sidebar-open {
+  .sidebar {
+    left: 0;
+  }
+  .content-main {
+    left: 300px;
+  }
+  .navigation-app {
+    left: 300px;
+  }
+  .content-overlay {
+    display: none;
+    max-width: 100%;
+    opacity: 1;
+  }
+  &.live-editing {
+    .content-main {
+      right: -300px;
+      overflow: hidden;
+    }
+    .content-overlay {
+      display: block;
+    }
+  }
+}
+
+// Close actionbar by adding this class. Removing it will open it back.
+
+.actionbar-closed {
+  .actionbar {
+    left: -500px;
+    box-shadow: 0;
+  }
+  .actionbar-trigger {
+    right: -30px;
+    i {
+      transform: rotate(180deg);
+    }
+  }
+  .content-preview {
+    left: 0;
+  }
+}
+
+// Responsive
+// =============================================================================
+
+@media (max-width: $screen-md-min) {
+  .sidebar-open {
+    .content-main,
+    .navigation-app {
+      right: -300px;
+      left: 300px;
+    }
+    .content-main {
+      overflow: hidden;
+    }
+    .content-overlay {
+      display: block;
+      max-width: 100%;
+      opacity: 1;
+    }
+  }
+}

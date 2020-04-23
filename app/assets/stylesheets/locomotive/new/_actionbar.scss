@@ -1,0 +1,83 @@
+// =============================================================================
+// Actionbar
+// =============================================================================
+
+// The actionbar wrapper class. Is also used in _transitions.scss for closing
+// and opening animations.
+
+.actionbar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  max-width: $actionbar-width;
+  background: $white;
+  border-right: 1px solid $border-color-base;
+  transition: left $base-transition-speed linear;
+  .scrollable {
+    margin-top: 173px;
+    &.no-editable-elements {
+      margin-top: 105px;
+    }
+    fieldset.inputs {
+      padding-top: 0;
+    }
+  }
+  .main .header-row {
+    padding: 15px 0;
+  }
+  .info-row {
+    p {
+      margin-bottom: 0;
+      line-height: 30px;
+      color: $gray-darkest;
+      a {
+        color: $gray-darkest;
+      }
+      button {
+        margin-left: 20px;
+      }
+    }
+    fieldset.inputs {
+      .form-group.input {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .editable-elements fieldset:first-child {
+    padding-top: 0;
+  }
+}
+
+// The trigger button on the top right side in the actionbar.
+
+.actionbar-trigger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 105;
+  width: 30px;
+  height: 30px;
+  padding-top: 5px;
+  text-align: center;
+  cursor: pointer;
+  background: $gray-darker;
+  transition: all $base-transition-speed linear;
+  .fa, .far, .fal, .fas {
+    color: $white;
+  }
+  &:hover {
+    background: $gray-darkest;
+  }
+}
+
+// Responsive
+// =============================================================================
+
+@media (max-width: $screen-sm-min) {
+  .actionbar {
+    box-shadow: 1px 0 10px rgba($black, .2);
+  }
+}

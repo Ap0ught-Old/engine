@@ -1,0 +1,33 @@
+- if empty_collection?(entries)
+
+  br
+
+  .alert.alert-warning
+    == t('.no_items', url: new_content_entry_path(current_site, content_type.slug))
+
+- else
+
+  #entries-list class="row big-list #{'grouped' if content_type.groupable?} #{'sortable' if content_type.order_manually?}" data-sort-url=sort_content_entries_path(current_site, content_type.slug, :json)
+    - entries.each do |entry|
+
+      - next if content_type.tree_parent_field_name && !entry[content_type.tree_parent_field_name.to_sym].nil?
+
+      .item.col-md-12 data-id=entry._id
+        - if content_type.order_manually?
+          .draggable
+            i.fa.fa-bars.draggable
+
+        .text
+          .item-label
+            = entry_label(content_type, entry, default_location_params)
+          .stamp
+            == document_stamp(entry)
+
+        .actions
+          .checkbox
+            = check_box_tag "item_#{entry._id}", entry._id
+            = label_tag "item_#{entry._id}", ''
+
+- if entries.respond_to?(:current_page)
+  .text-center
+    = paginate entries, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-sm'

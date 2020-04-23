@@ -1,6 +1,6 @@
 en:
   flash:
-    admin:
+    locomotive:
       pages:
         create:
           notice: "Page was successfully created."
@@ -13,42 +13,29 @@ en:
         destroy:
           notice: "Page was successfully deleted."
 
-      contents:
+      content_entries:
         create:
-          notice: "Content was successfully created."
-          alert: "Content was not created."
+          notice: "Entry was successfully created."
+          alert: "Entry was not created."
         update:
-          notice: "Content was successfully updated."
-          alert: "Content was not updated."
+          notice: "Entry was successfully updated."
+          alert: "Entry was not updated."
         sort:
-          notice: "Contents were successfully sorted."
+          notice: "Entries were successfully sorted."
         destroy:
-          notice: "Content was successfully deleted."
+          notice: "Entry was successfully deleted."
+        bulk_destroy:
+          notice: "Entries were successfully deleted."
 
       content_types:
-        create:
-          notice: "Model was successfully created."
-          alert: "Model was not created."
         update:
           notice: "Model was successfully updated."
           alert: "Model was not updated."
-        destroy:
-          notice: "Model was successfully deleted."
 
       current_site:
         update:
           notice: "My site was successfully updated."
           alert: "My site was not updated."
-
-      snippets:
-        create:
-          notice: "Snippet was successfully created."
-          alert: "Snippet was not created."
-        update:
-          notice: "Snippet was successfully updated."
-          alert: "Snippet was not updated."
-        destroy:
-          notice: "Snippet was successfully deleted."
 
       accounts:
         create:
@@ -67,40 +54,44 @@ en:
         destroy:
           notice: "Site was successfully deleted."
 
+      current_site_metafields:
+        update_all:
+          notice: "Site metafields were successfully updated."
+
       memberships:
         create:
           notice: "Membership was successfully created."
           alert: "Membership was not created."
           already_created: "Account was already added the current site."
 
-      assets:
+      content_assets:
         create:
-          notice: "Asset was successfully created."
-          alert: "Asset was not created."
+          notice: "Asset was successfully uploaded."
+          alert: "Asset was not uploaded."
+        bulk_create:
+          notice: "Assets were successfully uploaded."
+          alert: "Assets were not uploaded."
         update:
           notice: "Asset was successfully updated."
           alert: "Asset was not updated."
-
-      theme_assets:
-        create:
-          notice: "File was successfully created."
-          alert: "File was not created."
-        update:
-          notice: "File was successfully updated."
-          alert: "File was not updated."
         destroy:
-          notice: "File was successfully deleted."
+          notice: "Asset was successfully deleted."
+          alert: "Asset was not deleted."
+
+      translations:
+        create:
+          notice: "Translation was successfully created."
+          alert: "Translation was not created."
+        update:
+          notice: "Translation was successfully updated."
+          alert: "Translation was not updated."
+        destroy:
+          notice: "Translation was successfully deleted."
+        bulk_destroy:
+          notice: "Translations were successfully deleted."
 
       custom_fields:
-        update:
-          alert: "Field not updated"
-
-      cross_domain_sessions:
-        create:
-          alert: "You need to sign in"
-
-      import:
-        create:
-          done: "Your site was successfully updated."
-          notice: "Your site is being updated."
-          alert: "The import was not done."
+        select_options:
+          update:
+            notice: "Field was successfully updated."
+            alert: "Field was not updated."

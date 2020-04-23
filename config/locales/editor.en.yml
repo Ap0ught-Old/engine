@@ -1,0 +1,124 @@
+en:
+  locomotive:
+    editor:
+      shared:
+        confirm: "Are you sure?"
+
+      components:
+        cropper:
+          title: "Crop image"
+          action: "Apply"
+          action_in_progress: "Cropping..."
+
+        locale_switcher:
+          locale: "<strong>{{locale}}</strong> version"
+
+        draft:
+          link:
+            title: Insert link
+            insert_link: Done
+
+      inputs:
+        url:
+          select_button: "Select"
+          change_button: "Change"
+          remove_button: "Remove"
+          types:
+            page: Page
+            content_entry: Model
+            _external: URL
+            email: Email
+
+        image_picker:
+          select_button: "Select"
+          change_button: "Change"
+          remove_button: "Remove"
+          crop_button: "Crop"
+
+        content_type:
+          show: "Show"
+
+        content_entry:
+          select_button: "Select"
+          change_button: "Change"
+          remove_button: "Remove"
+
+      views:
+        action_bar:
+          header:
+            no_title: "No title"
+            save_button:
+              label: "Save"
+              in_progress: "Saving..."
+              success: "Changes saved"
+              error: "Changes not saved"
+
+          menu:
+            content: "Content"
+            settings: "Settings"
+            seo: "SEO"
+
+        pickers:
+          images:
+            title: "Images"
+            loading: "Loading the images. Please wait!"
+            add: "+ add"
+            too_big: "Your image is too big: Maximum file size is 2MB"
+            upload_in_progress: "Uploading..."
+          url:
+            title: "Pick a target"
+            open_new_window: "Open in a new window?"
+            types:
+              page: Page
+              content_entry: Model
+              _external: URL
+              email: Email
+            page:
+              label: Page
+              placeholder: Type the title of your page
+              section_label: Section
+            content_entry:
+              content_type_label: Which model?
+              label: Instance of your model
+              placeholder: Type the label of the instance
+            _external:
+              label: URL address
+              placeholder: "https://www.example.com"
+            email:
+              label: Email address
+              placeholder: "name@example.com"
+          content_entry:
+            title: "Pick an entry"
+            input:
+              label: Instance
+              placeholder: Type the label of the instance
+
+        preview:
+          view: "View"
+
+        sections:
+          edit:
+            default_block_label: "Content"
+            add_block: "+ add"
+
+          gallery:
+            title: "Add a new section"
+            add: "Add"
+
+          dropzone:
+            add: "+ add section"
+
+        seo:
+          title_label: "SEO title"
+          meta_keywords_label: "META keywords"
+          meta_description_label: "META description"
+
+        settings:
+          title_label: "Title"
+          slug_label: "Slug"
+          published: "Published?"
+          listed: "Listed in the menu?"
+          more: "More settings..."
+
+        startup:
+          waiting: "Waiting for the preview pane to be ready"

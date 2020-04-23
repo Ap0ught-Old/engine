@@ -1,5 +1,4 @@
 module Locomotive
-
   module Mongoid
 
     module Document
@@ -9,11 +8,12 @@ module Locomotive
       included do
         include ::Mongoid::Document
         include ::Mongoid::Timestamps
-        include ::Mongoid::CustomFields
+        include ::Mongoid::Attributes::Dynamic
+
+        include Locomotive::Mongoid::Liquid
       end
 
     end
 
   end
-
 end

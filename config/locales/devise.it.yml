@@ -2,62 +2,60 @@ it:
   errors:
     messages:
       not_found: "non trovato"
-      already_confirmed: "era già stato confermato"
-      not_locked: "non è stato bloccato"
-
+      already_confirmed: "è già stato confermato"
+      not_locked: "non era bloccato"
   devise:
     failure:
-      admin:
-        unauthenticated: "E' necessario accedere o registrati prima di continuare."
-        unconfirmed: "E' necessario confermare l'account prima di continuare."
+      locomotive_account:
+        unauthenticated: 'E'' necessario effettuare il login per continuare.'
+        unconfirmed: 'Devi confermare il tuo account per poter continuare.'
         locked: 'Il tuo account è bloccato.'
-        invalid: 'Email o password non validi.'
-        no_membership: "Il tuo account non è un membro di questo sito, si prega di contattare l'amministratore del sito per ottenere l'accesso."
+        invalid: 'Email o password non valide.'
+        not_found_in_database: 'Email o password non valide.'
+        no_membership: 'Il tuo account non è presente, per favore contatta l''amministratore del sito per ottenere l''accesso.'
         invalid_token: 'Token di autenticazione non valido.'
-        timeout: 'La tua sessione è scaduta, si prega di accedere nuovamente per continuare.'
-        inactive: 'Il tuo account non è stato ancora attivato.'
+        timeout: 'La tua sessuine è scaduta, per favore effettua il login per continuare.'
+        inactive: 'Il tuo account non è ancora stato attivato.'
     sessions:
-      admin:
-        signed_in: 'Login eseguito con successo.'
-        signed_out: 'Logout eseguito con successo.'
+      locomotive_account:
+        signed_in: 'Login effettuato correttamente.'
+        signed_out: 'Logout effettuato correttamente.'
     passwords:
-      admin:
-        send_instructions: 'Entro qualche minuti riceverai una email con le istruzioni su come reimpostare la password.'
-        updated: 'La tua password è stata cambiata con successo. Ora sei collegato.'
+      locomotive_account:
+        send_instructions: 'Riceverai una email con le istruzioni su come resettare la password in pochi minuti.'
+        updated: 'La tua password è stata cambiata con successo. Sei ora loggato.'
+        invalid: 'Devi richiedere una nuova password.'
     confirmations:
-      admin:
-        send_instructions: 'Entro qualche minuti riceverai un messaggio email con le istruzioni per confermare il tuo account.'
-        confirmed: 'Il tuo account è stato confermato. Ora sei collegato.'
+      locomotive_account:
+        send_instructions: 'Riceverai un email su come confermare il tuo account in pochi minuti.'
+        confirmed: 'Il tuo account è stato confermato con successo. Sei ora loggato.'
     registrations:
-      admin:
-        signed_up: 'Registrazione eseguita correttamente.'
-        updated: 'Il tuo account è stato aggiornato.'
-        destroyed: "Arrivederci! L'account è stato eliminato. Speriamo di rivederci presto."
+      locomotive_account:
+        signed_up: 'Ti sei registrato correttamente.'
+        updated: 'Hai aggiornato il tuo account con successo.'
+        destroyed: 'Arrivederci! Il tuo account è stato eliminato con successo. Speriamo di rivederti presto.'
     unlocks:
-      admin:
-        send_instructions: 'Entro qualche minuti riceverai un messaggio email con le istruzioni per sbloccare il tuo account.'
-        unlocked: 'Il tuo account è stato correttamente sbloccato. Ora sei collegato.'
+      locomotive_account:
+        send_instructions: 'Riceverai un email con le istruzioni su come sbloccare il tuo account in pochi minuti.'
+        unlocked: 'Il tuo account è stato sbloccato con successo. Sei ora loggato.'
     mailer:
-      admin:
-        confirmation_instructions: 'Istruzioni per la conferma'
-        reset_password_instructions: 'Istruzioni per reimpostare la password'
-        unlock_instructions: "Istruzioni per lo sblocco dell'account"
-        
-        
-  admin:
-    mailer:
+      locomotive_account:
+        confirmation_instructions: 'Istruzioni di conferma'
+        reset_password_instructions: 'Istruzioni di reset password'
+        unlock_instructions: 'Istruzioni di sblocco'
+  locomotive:
+    devise_mailer:
       common:
         hello: Ciao
-
       confirmation_instructions:
-        you_can_confirm_your_account_through_the_link_below: "Puoi confermare il tuo account attraverso il seguente link:"
-        confirm_my_account: "Confermare il mio account"
+        you_can_confirm_your_account_through_the_link_below: "Puoi confermare il tuo account attraverso il link sottostante:"
+        confirm_my_account: "Conferma il tuo account"
       reset_password_instructions:
-        reset_password_instruction: "Qualcuno ha richiesto un link per cambiare la tua passowrd, puoi farlo attraverso il seguente link:"
-        change_my_password: "Cambiare la mia password"
-        wrong_request_instruction: "Se non l'hai richiesto, ti preghiamo di ignorare questa mail."
-        unchange_password_message: "La tua password non verrà cambiata fino a quando non avrai seguito il link qui sopra e non ne avrai creata una di nuova."
+        reset_password_instruction: "Qualcuno ha richiesto di cambiare la password, puoi effettuarlo tramite il link sottostante:"
+        change_my_password: "Cambia la mia password"
+        wrong_request_instruction: "Se non lo hai richiesto, per favore ignora questa email."
+        unchange_password_message: "La tua password non verrà modificata fintantoché non accedi al link sottostante e ne creai una nuova."
       unlock_instructions:
-        locked_account_message: "Il tuo account è stato bloccato a causa di un numero eccessivo di tentativi falliti di accesso."
-        unlock_account_instruction: "Segui il link qui sotto per sbloccare il tuo account:"
-        unlock_my_account: "Sbloccare il mio account"
+        locked_account_message: "Il tuo account è stato bloccato a causa di un eccessivo numero di tentativi di login errati."
+        unlock_account_instruction: "Clicca il link sottostante per sbloccare il tuo account:"
+        unlock_my_account: "Sblocca il mio account"

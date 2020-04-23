@@ -1,0 +1,16 @@
+- title t('.title')
+
+- help t('.help', default: '')
+
+- content_for :actions do
+  = locale_picker_link
+
+= locomotive_form_for @site, url: current_site_path(current_site), html: { multipart: true }, defaults: { placeholder: false } do |f|
+
+  = hidden_field_tag :active_tab, ''
+
+  = f.action class: 'hide'
+
+  = render 'locomotive/current_site/form/tabs', f: f
+
+  = render 'locomotive/current_site/form/panes', f: f

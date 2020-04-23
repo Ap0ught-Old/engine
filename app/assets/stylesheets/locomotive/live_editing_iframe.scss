@@ -1,0 +1,70 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+$button-background:     #1c77c3;
+$button-border-color:   darken($button-background, 10%) !default;
+$button-color:          #fff;
+
+#locomotive-highlighter-bar, #locomotive-highlighter-actions {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10000;
+}
+
+#locomotive-highlighter-bar {
+  background-color: yellow;
+  width: 5px;
+  min-height: 10px;
+}
+
+#locomotive-highlighter-actions {
+  > a {
+    background: $button-background;
+    background-image: none;
+    border: none;
+    border-bottom: 2px solid $button-border-color;
+    border-radius: 3px;
+    color: $button-color;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    max-height: 30px;
+    line-height: 18px;
+    margin: 0 10px 0 0px;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: capitalize;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: darken($button-background, 10%);
+      border-color: darken($button-border-color, 12%);
+    }
+
+    i.locomotive-fa {
+      @include fa-icon;
+      font-family: 'Font Awesome 5 Free';
+      font-size: inherit;
+      font-weight: 900;
+      vertical-align: 0rem;
+      display: inline-block;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
+      margin-right: 5px;
+
+      &.locomotive-fa-pencil:before {
+        content: fa-content($fa-var-pencil-alt);
+      }
+    }
+
+  }
+
+}

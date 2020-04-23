@@ -1,0 +1,65 @@
+// =============================================================================
+// Content
+// =============================================================================
+
+// The main content wrapper which also moves during transitions.
+
+.content-main {
+  position: fixed;
+  top: 52px;
+  right: 0;
+  bottom: 0;
+  left: 300px;
+  transition: left $base-transition-speed linear, right $base-transition-speed linear;
+}
+
+// Inner content wrapper for non-live-edit pages.
+
+.content {
+  position: relative;
+  height: 100%;
+}
+
+// Content overlay when sidebar is open when viewport is smaller then md and
+// when sidebar is open on live edit pages.
+
+.content-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 110;
+  max-width: 0;
+  overflow: hidden;
+  background: rgba($black, .4);
+  opacity: 0;
+  transition: opacity $base-transition-speed linear;
+}
+
+// Content wrapper for live edit pages.
+
+.content-preview {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: $actionbar-width;
+  z-index: 90;
+  transition: left $base-transition-speed linear;
+}
+
+// Responsive
+// =============================================================================
+
+@media (max-width: $screen-md-min) {
+  .content-main {
+    left: 0;
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .content-preview {
+    left: 0;
+  }
+}

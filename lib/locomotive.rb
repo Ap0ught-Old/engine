@@ -1,34 +1,24 @@
-require 'mimetype_fu'
-require 'devise'
-
+require 'locomotive/dependencies'
 require 'locomotive/version'
 require 'locomotive/core_ext'
 require 'locomotive/configuration'
+require 'locomotive/devise'
+require 'locomotive/simple_token_authentication'
 require 'locomotive/logger'
+require 'locomotive/simple_form'
 require 'locomotive/dragonfly'
 require 'locomotive/kaminari'
-require 'locomotive/liquid'
+require 'locomotive/presentable'
 require 'locomotive/mongoid'
 require 'locomotive/carrierwave'
 require 'locomotive/custom_fields'
-require 'locomotive/httparty'
-require 'locomotive/inherited_resources'
-require 'locomotive/admin_responder'
-require 'locomotive/routing'
+require 'locomotive/action_controller'
+require 'locomotive/rails'
 require 'locomotive/regexps'
-require 'locomotive/render'
-require 'locomotive/import'
-require 'locomotive/export'
-require 'locomotive/delayed_job'
-require 'locomotive/middlewares'
-require 'locomotive/session_store'
-require 'locomotive/hosting'
+require 'locomotive/engine'
 
 module Locomotive
-
-  extend Locomotive::Hosting::Heroku
-  extend Locomotive::Hosting::Bushido
-  extend Locomotive::Hosting::Default
+  extend ActiveSupport::Autoload
 
   class << self
     attr_accessor :config
@@ -37,18 +27,6 @@ module Locomotive
       self.config = Configuration.new unless @config
       @config
     end
-  end
-
-  def self.engine?
-    self.const_defined?('Engine')
-  end
-
-  def self.default_site_template_present?
-    File.exists?(self.default_site_template_path)
-  end
-
-  def self.default_site_template_path
-    File.join(Rails.root, 'tmp/default_site_template.zip')
   end
 
   def self.configure
@@ -60,71 +38,17 @@ module Locomotive
   end
 
   def self.after_configure
-    self.define_subdomain_and_domains_options
-
-    # multi sites support
-    self.configure_multi_sites
-
-    # hosting platform
-    self.configure_hosting
-
     # Devise
     mail_address = self.config.mailer_sender
     ::Devise.mailer_sender = mail_address =~ /.+@.+/ ? mail_address : "#{mail_address}@#{Locomotive.config.domain}"
 
-    # cookies stored in mongodb (mongoid_store)
-    Rails.application.config.session_store :mongoid_store, {
-      :key => self.config.cookie_key
-    }
-
-    # add middlewares (dragonfly, font, seo, ...etc)
-    self.add_middlewares
-
-    # Load all the dynamic classes (custom fields)
-    begin
-      ContentType.all.collect(&:fetch_content_klass)
-    rescue ::Mongoid::Errors::InvalidDatabase => e
-      # let assume it's because of the first install (meaning no config.yml file)
-    end
-  end
-
-  def self.add_middlewares
-    self.app_middleware.insert 0, 'Dragonfly::Middleware', :images
-
-    if self.rack_cache?
-      self.app_middleware.insert_before 'Dragonfly::Middleware', '::Locomotive::Middlewares::Cache', self.config.rack_cache
+    # Check for outdated Dragonfly config
+    if ::Dragonfly::VERSION =~ /^0\.9\.([0-9]+)/
+      Locomotive.log :error, "WARNING: Old Dragonfly config detected, image uploads might be broken. Use 'rails g locomotive:install' to get the latest configuration files."
     end
 
-    self.app_middleware.insert_before Rack::Lock, '::Locomotive::Middlewares::Fonts', :path => %r{^/fonts}
-    self.app_middleware.use '::Locomotive::Middlewares::SeoTrailingSlash'
-  end
-
-  def self.configure_multi_sites
-    if self.config.multi_sites?
-      domain_name = self.config.multi_sites.domain
-
-      raise '[Error] Locomotive needs a domain name when used as a multi sites platform' if domain_name.blank?
-
-      self.config.domain = domain_name
-    end
-  end
-
-  def self.configure_hosting
-    # Heroku support
-    self.enable_heroku if self.heroku?
-
-    # Bushido support
-    self.enable_bushido if self.bushido?
-  end
-
-  def self.define_subdomain_and_domains_options
-    if self.config.multi_sites?
-      self.config.manage_subdomain = self.config.manage_domains = true
-    else
-      # Note: (Did) modify the code below if Locomotive handles a new hosting solution (not a perfect solution though)
-      self.config.manage_domains = self.heroku? || self.bushido?
-      self.config.manage_subdomain = self.bushido?
-    end
+    # avoid I18n warnings
+    I18n.enforce_available_locales = false
   end
 
   def self.log(*args)
@@ -134,9 +58,8 @@ module Locomotive
     ::Locomotive::Logger.send(level.to_sym, message)
   end
 
-  # rack_cache: needed by default
-  def self.rack_cache?
-    self.config.rack_cache != false
+  def self.mounted_on
+    Rails.application.routes.named_routes[:locomotive].path.spec.to_s
   end
 
   protected

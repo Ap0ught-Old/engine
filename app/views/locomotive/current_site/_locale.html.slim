@@ -1,0 +1,18 @@
+.item.row data-id=locale
+
+  = hidden_field_tag 'site[locales][]', locale
+
+  .inner-row.col-md-12
+
+    .draggable
+      i.fa.fa-bars
+
+    .text
+      = flag_tag locale
+      | &nbsp;&nbsp;
+      = I18n.t("locomotive.locales.#{locale}")
+
+    .buttons
+      - if current_site.default_locale != locale
+        = link_to '#', class: 'delete' do
+          i.far.fa-trash-alt

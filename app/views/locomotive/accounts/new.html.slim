@@ -1,0 +1,18 @@
+- title t('.title')
+
+- help t('.help', default: '')
+
+= locomotive_form_for @account, url: accounts_path(current_site) do |f|
+
+  = f.inputs :information do
+    = f.input :name, input_html: { class: 'input-lg' }
+
+    - unless f.object.respond_to?(:password)
+      = f.input :email
+
+    - if f.object.respond_to?(:password)
+      = f.input :email
+      = f.input :password, input_html: { autocomplete: 'off' }
+      = f.input :password_confirmation, input_html: { autocomplete: 'off' }
+
+  = f.actions back_url: edit_current_site_path(current_site)

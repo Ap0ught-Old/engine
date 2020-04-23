@@ -1,116 +1,82 @@
 es:
   flash:
-    admin:
+    locomotive:
       pages:
         create:
-          notice: "Página creada con éxito."
-          alert: "La página no se pudo crear."
+          notice: "La pagina ha sido creada exitosamente."
+          alert: "La pagina no ha sido creada."
         update:
-          notice: "La página se actalizó con éxito."
-          alert: "La página no se pudo actualizar."
+          notice: "La pagina fue actualizada exitosamente."
+          alert: "La pagina no fue actualizada."
         sort:
-          notice: "Las páginas se han reordenado con éxito."
+          notice: "Las paginas fueron ordenadas exitosamente."
         destroy:
-          notice: "Página borrada con éxito."
-
-      contents:
+          notice: "La pagina fue eliminada exitosamente."
+      content_entries:
         create:
-          notice: "Contenido multimedia creado con éxito."
-          alert: "El contenido multimedia no se pudo crear."
+          notice: "La entrada fue creada exitosamente."
+          alert: "La entrada no fue creada."
         update:
-          notice: "Contenido multimedia actualizado con éxito."
-          alert: "El contenido multimedia no se pudo actualizar."
+          notice: "La entrada fue exitosamente actualizada."
+          alert: "La entrada no fue actualizada."
         sort:
-          notice: "Contenido multimedia reordenado con éxito."
+          notice: "Las entradas fueron ordenadas exitosamente."
         destroy:
-          notice: "Contenido multimedia eliminado con éxito."
-
+          notice: "La entrada fue eliminada exitosamente."
       content_types:
-        create:
-          notice: "Modelo creado con éxito."
-          alert: "El modelo no se pudo crear."
         update:
-          notice: "Modelo actualizado con éxito."
-          alert: "El modelo no se pudo actualizar."
-        destroy:
-          notice: "Modelo eliminado con éxito."
-
+          notice: "El modelo fue actualizado exitosamente."
+          alert: "El modelo no fue actualizado."
       current_site:
         update:
-          notice: "Sitio actualizado con éxito."
-          alert: "El sitio se pudo actualizar."
-
-      snippets:
-        create:
-          notice: "Fragmento creado con éxito."
-          alert: "El fragmento no se pudo crear."
-        update:
-          notice: "Fragmento actualizado con éxito."
-          alert: "El fragmento no se pudo actualizar."
-        destroy:
-          notice: "Fragmento eliminado con éxito."
-
+          notice: "Mi sitio fue actualizado exitosamente."
+          alert: "Mi sitio no fue actualizado."
       accounts:
         create:
-          notice: "Cuenta creada con éxito."
-          alert: "La cuenta no se pudo crear."
-
+          notice: "La cuenta fue creada exitosamente."
+          alert: "La cuenta no fue creada."
       my_account:
         update:
-          notice: "Información de cuenta actualizada con éxito."
-          alert: "Mi información de cuenta no se pudo actualizar."
-
+          notice: "Mi cuenta fue actualizada exitosamente."
+          alert: "Mi cuenta no fue actualizada."
       sites:
         create:
-          notice: "Sitio creado con éxito."
-          alert: "El sitio no se pudo crear."
+          notice: "El stio fue creado exitosamente."
+          alert: "El sitio no fue creado."
         destroy:
-          notice: "Sitio eliminado con éxito."
-
+          notice: "El sitio fue eliminado exitosamente."
+      current_site_metafields:
+        update_all:
+          notice: "Los metacampos del sitio fueron actualizados exitosamente."
       memberships:
         create:
-          notice: "Afiliación creada con éxito."
-          alert: "La afiliaciónMember no se pudo crear."
-          already_created: "La cuenta ya estaba añadida al sitio web actual."
-
-      asset_collections:
+          notice: "La membresia fue creada exitosamente."
+          alert: "La membresia no fue creada."
+          already_created: "La cuenta ya habia sido agrega anteriormente al sitio actual."
+      content_assets:
         create:
-          notice: "Colección creada con éxito."
-          alert: "La colección no se pudo crear."
+          notice: "El recurso fue cargado exitosamente."
+          alert: "El recurso no fue cargado."
+        bulk_create:
+          notice: "Los recursos fueron cargados exitosamente."
+          alert: "Los recursos no fueron cargados."
         update:
-          notice: "Colección actualizada con éxito."
-          alert: "La colección no se pudo actualizar."
+          notice: "El recurso fue actualizado exitosamente."
+          alert: "El recurso no fue actualizado."
         destroy:
-          notice: "Colección eliminada con éxito."
-
-      assets:
+          notice: "El recurso fue eliminado exitosamente."
+          alert: "El recurso no fue eliminado."
+      translations:
         create:
-          notice: "Contenido multi-media creado con éxito."
-          alert: "El contenido multi-media no se pudo crear."
+          notice: "La traduccion fue creada exitosamente."
+          alert: "La traduccion no fue creada."
         update:
-          notice: "Contenido multi-media actualizado con éxito."
-          alert: "El contenido multi-media no se pudo actualizar."
-
-      theme_assets:
-        create:
-          notice: "Fichero creado con éxito."
-          alert: "El fichero no se pudo crear."
-        update:
-          notice: "Fichero actualizado con éxito."
-          alert: "El fichero no se pudo actualizar."
+          notice: "La readuccion fue actualizada exitosamente."
+          alert: "La traduccion no fue actualizada."
         destroy:
-          notice: "Fichero eliminado con éxito."
-
+          notice: "La traduccion fue eliminada exitosamente."
       custom_fields:
-        update:
-          alert: "Campo no actualizado"
-
-      cross_domain_sessions:
-        create:
-          alert: "Debe iniciar una sesión"
-
-      imports:
-        create:
-          done: "Sitio actualizado con éxito."
-          notice: "El sitio está siendo actualizado."
-          alert: "La importación no se ha completado."
+        select_options:
+          update:
+            notice: "El campo fue actualizado exitosamente."
+            alert: "El campo no fue actualizado."

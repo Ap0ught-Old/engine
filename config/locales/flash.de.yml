@@ -1,106 +1,82 @@
 de:
   flash:
-    admin:
+    locomotive:
       pages:
         create:
           notice: "Seite wurde erfolgreich erstellt."
           alert: "Seite wurde nicht erstellt."
         update:
-          notice: "Seite wurde erfolreich aktualisiert."
+          notice: "Seite wurde erfolgreich aktualisiert."
           alert: "Seite wurde nicht aktualisiert."
         sort:
           notice: "Seiten wurden erfolgreich sortiert."
         destroy:
           notice: "Seite wurde erfolgreich gelöscht."
-
-      contents:
+      content_entries:
         create:
-          notice: "Inhalt wurde erfolgreich erstellt."
-          alert: "Inhalt wurde nicht erstellt."
+          notice: "Eintrag wurde erfolgreich erstellt."
+          alert: "Eintrag wurde nicht erstellt."
         update:
-          notice: "Inhalt wurde erfolreich aktualisiert."
-          alert: "Inhalt wurde nicht aktualisiert."
+          notice: "Eintrag wurde erfolgreich aktualisiert."
+          alert: "Eintrag wurde nicht aktualisiert."
         sort:
-          notice: "Inhalte wurden erfolgreich sortiert."
+          notice: "Einträge wurden erfolgreich sortiert."
         destroy:
-          notice: "Inhalt wurde erfolgreich gelöscht."
-
+          notice: "Eintrag wurde erfolgreich entfernt."
       content_types:
-        create:
-          notice: "Baustein wurde erfolgreich erstellt."
-          alert: "Baustein wurde nicht erstellt."
         update:
-          notice: "Baustein wurde erfolreich aktualisiert."
-          alert: "Baustein wurde nicht aktualisiert."
-        destroy:
-          notice: "Baustein wurde erfolgreich gelöscht."
-
+          notice: "Modell wurde erfolgreich aktualisiert."
+          alert: "Modell wurde nicht aktualisiert."
       current_site:
         update:
-          notice: "Meine Webseite wurde erfolreich aktualisiert."
-          alert: "Meine Webseite wurde nicht aktualisiert."
-
-      snippets:
-        create:
-          notice: "Snippet wurde erfolgreich erstellt."
-          alert: "Snippet wurde nicht erstellt."
-        update:
-          notice: "Snippet wurde erfolreich aktualisiert."
-          alert: "Snippet wurde nicht aktualisiert."
-        destroy:
-          notice: "Snippet wurde erfolgreich gelöscht."
-
+          notice: "Webseite wurde erfolgreich aktualisiert."
+          alert: "Webseite wurde nicht aktualisiert."
       accounts:
         create:
-          notice: "Account wurde erfolgreich erstellt."
-          alert: "Account wurde nicht erstellt."
-
+          notice: "Konto wurde erfolgreich erstellt."
+          alert: "Konto wurde nicht erstellt."
       my_account:
         update:
-          notice: "Mein Account wurde erfolreich aktualisiert."
-          alert: "Mein Account wurde nicht aktualisiert."
-
+          notice: "Mein Konto wurde erfolgreich aktualisiert."
+          alert: "Mein Konto wurde nicht aktualisiert."
       sites:
         create:
           notice: "Webseite wurde erfolgreich erstellt."
           alert: "Webseite wurde nicht erstellt."
         destroy:
-          notice: "Webseite wurde erfolgreich gelöscht."
-
+          notice: "Webseite wurde erfolgreich entfernt."
+      current_site_metafields:
+        update_all:
+          notice: "Metainformationsfelder der Seite wurden erfolgreich aktualisiert."
       memberships:
         create:
-          notice: "Account wurde erfolgreich erstellt."
-          alert: "Account wurde nicht erstellt."
-          already_created: "Account wurde bereits zu dieser Webseite hinzugefügt."
-
-      assets:
+          notice: "Mitgliedschaft wurde erfolgreich erstellt."
+          alert: "Mitgliedschaft wurde nicht erstellt."
+          already_created: "Konto wurde bereits zur aktuellen Webseite hinzugefügt."
+      content_assets:
         create:
-          notice: "Asset wurde erfolgreich erstellt."
-          alert: "Asset wurde nicht erstellt."
+          notice: "Mediendatei wurde erfolgreich hochgeladen."
+          alert: "Mediendatei wurde nicht hochgeladen."
+        bulk_create:
+          notice: "Mediendateien wurden erfolgreich hochgeladen."
+          alert: "Mediendateien wurden nicht hochgeladen."
         update:
-          notice: "Asset wurde erfolreich aktualisiert."
-          alert: "Asset wurde nicht aktualisiert."
-
-      theme_assets:
-        create:
-          notice: "Datei wurde erfolgreich erstellt."
-          alert: "Datei wurde nicht erstellt."
-        update:
-          notice: "Datei wurde erfolreich aktualisiert."
-          alert: "Datei wurde nicht aktualisiert."
+          notice: "Mediendatei wurde erfolgreich aktualisiert."
+          alert: "Mediendatei wurde nicht aktualisiert."
         destroy:
-          notice: "Datei wurde erfolgreich gelöscht."
-
-      custom_fields:
+          notice: "Mediendatei wurde erfolgreich entfernt."
+          alert: "Mediendatei wurde nicht entfernt."
+      translations:
+        create:
+          notice: "Übersetzung wurde erfolgreich erstellt."
+          alert: "Übersetzung wurde nicht erstellt."
         update:
-          alert: "Feld nicht aktualisiert"
-
-      cross_domain_sessions:
-        create:
-          alert: "Du musst dich einloggen"
-
-      import:
-        create:
-          done: "Deine Webseite wurde erfolreich aktualisiert."
-          notice: "Deine Webseite wird aktualisiert."
-          alert: "Der Import war nicht erfolgreich."
+          notice: "Übersetzung wurde erfolgreich aktualisiert."
+          alert: "Übersetzung wurde nicht aktualisiert."
+        destroy:
+          notice: "Übersetzung wurde erfolgreich entfernt."
+      custom_fields:
+        select_options:
+          update:
+            notice: "Feld wurde erfolgreich aktualisiert."
+            alert: "Feld wurde nicht aktualisiert."

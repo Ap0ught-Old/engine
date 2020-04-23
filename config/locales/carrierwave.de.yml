@@ -1,4 +1,4 @@
 de:
   carrierwave:
     errors:
-      integrity: 'ist kein erlaubter Datei-Typ.'
+      integrity: 'ist kein erlaubtes Dateiformat.'

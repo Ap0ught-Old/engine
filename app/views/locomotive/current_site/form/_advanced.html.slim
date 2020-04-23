@@ -1,0 +1,28 @@
+= f.inputs :advanced do
+  = f.input :locales, as: :array, template: :locale, template_url: new_locale_current_site_path(current_site), select_options: options_for_site_locales
+
+  = f.input :prefix_default_locale, as: :toggle
+
+  = f.input :bypass_browser_locale, as: :toggle
+
+  = f.input :timezone_name, as: :select, include_blank: false, collection: options_for_site_timezones
+
+  = f.input :robots_txt, as: :code, wrapper_html: { class: 'small' }
+
+  = f.input :maximum_uploaded_file_size
+
+  = f.inputs :cache_enabled do
+    = f.input :cache_enabled, as: :toggle
+    = f.input :cache_control, as: :string, wrapper_html: { class: "#{'hide' unless f.object.cache_enabled?}" }
+    = f.input :cache_vary, as: :string, wrapper_html: { class: "#{'hide' unless f.object.cache_enabled?}" }
+
+- if policy(@site).destroy?
+  = f.actions do
+    .row
+      .col-sm-6.text-left
+        = link_to t('.destroy'), current_site_path(current_site), data: { safe_confirm: { question: t('.confirm_destroy'), answer: @site.name } }, class:'btn btn-sm btn-danger', method: :delete
+      .col-sm-6.text-right
+        = f.action
+
+- else
+  = f.actions

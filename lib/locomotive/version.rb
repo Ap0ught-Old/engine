@@ -1,3 +1,3 @@
-module Locomotive #:nodoc
-  VERSION = "1.0.0.rc1"
+module Locomotive
+  VERSION = '4.0.3'
 end

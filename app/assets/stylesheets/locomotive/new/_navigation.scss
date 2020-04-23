@@ -1,0 +1,203 @@
+// =============================================================================
+// Navigation
+// =============================================================================
+
+// Custom navigation for the account pages.
+
+// Navigation wrapper.
+
+.navigation {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: block;
+  padding: 25px 40px;
+  text-align: left;
+  .brand-logo {
+    margin-top: 4px;
+  }
+}
+
+// Right side links in the navigation containing the dropdown.
+
+.navigation-links {
+  position: relative;
+  z-index: 100;
+  float: right;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  list-style: none;
+  li {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .dropdown-toggle {
+    display: inline-block;
+    margin-top: 2px;
+    color: $white;
+    img {
+      display: inline-block;
+      width: 30px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    span {
+      margin-left: 5px;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+  }
+  .dropdown-menu {
+    right: 0;
+    left: auto;
+    margin-top: 10px;
+    box-shadow: 0 1px 10px rgba($black, .2);
+    li {
+      display: block;
+      a {
+        display: block;
+        padding: 5px 15px;
+        font-size: 13px;
+        transition: all $base-transition-speed linear;
+        &:hover {
+          background: $gray-lighter;
+        }
+        &:focus,
+        &:active {
+          background: $gray-light;
+        }
+      }
+      &.divider {
+        margin: 5px 0;
+      }
+    }
+    &::after {
+      position: absolute;
+      right: 15px;
+      bottom: 100%;
+      width: 0;
+      height: 0;
+      margin-right: -6px;
+      pointer-events: none;
+      border: solid transparent;
+      border-color: rgba($white, 0);
+      border-bottom-color: $white;
+      border-width: 6px;
+      content: " ";
+    }
+  }
+}
+
+// Backend navigation
+// =============================================================================
+
+// Specific navigation wrapper for the backend.
+
+.navigation-app {
+  left: 300px;
+  z-index: 100;
+  padding: 10px 20px;
+  background: $brand-primary;
+  transition: all $base-transition-speed linear;
+}
+
+// Navigation sidebar trigger.
+
+.navigation-trigger {
+  position: relative;
+  z-index: 100;
+  display: inline-block;
+  margin-top: 5px;
+  color: rgba($white, .5);
+  vertical-align: middle;
+  cursor: pointer;
+  transition: color $base-transition-speed linear;
+  .fa, .fal, .far, .fas {
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: middle;
+  }
+  .fa-bars {
+    margin-left: 5px;
+  }
+  .fa-caret-right {
+    display: none;
+  }
+  &:hover {
+    color: $white;
+  }
+}
+
+// Middle link in the navigation.
+
+.navigation-middle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 90;
+  padding-top: 15px;
+  text-align: center;
+  .fa, .far, .fal, .fas {
+    margin-left: 10px;
+  }
+  a {
+    display: inline-block;
+    color: rgba($white, .6);
+    vertical-align: middle;
+    transition: color $base-transition-speed linear;
+    &:hover {
+      color: $white;
+      text-decoration: none;
+      .fa, .far, .fal, .fas {
+        color: $white;
+      }
+    }
+  }
+}
+
+// Responsive
+// =============================================================================
+
+@media (max-width: $screen-md-min) {
+  .navigation-app {
+    left: 0;
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .navigation {
+    padding: 25px 20px;
+  }
+  .navigation-app {
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: $screen-xs-min) {
+  .navigation {
+    padding: 25px 10px;
+  }
+  .navigation-app {
+    padding: 10px 20px;
+  }
+  .navigation-links {
+    .dropdown-toggle {
+      span {
+        display: none;
+      }
+      .caret {
+        display: inline-block;
+      }
+    }
+    .dropdown-menu::after {
+      right: 35px;
+      margin-left: 0;
+    }
+  }
+}

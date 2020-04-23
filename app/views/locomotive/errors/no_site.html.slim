@@ -1,0 +1,11 @@
+- message, link = no_site_message_and_link
+
+.public-box
+  .public-intro
+    h3
+      i.fa.fa-exclamation-triangle
+      = error_title
+  p
+    == message
+    br
+    = link_to t('.next').html_safe, link, class: 'btn btn-primary'
